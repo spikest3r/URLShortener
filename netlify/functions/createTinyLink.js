@@ -26,6 +26,10 @@ exports.handler = async (event) => {
                 break;
             }
         }
+        if (!ogLink.startsWith('http://') && !ogLink.startsWith('https://')) {
+            ogLink = 'https://' + ogLink;
+        }
+        
         if(found) {
             await sql`INSERT INTO urls(original_url, short_url) VALUES (${ogLink}, ${tiny})` // insert link into db (store only id)
             return {
