@@ -32,7 +32,9 @@ function App() {
       <input type='text' id='ogLink' value={ogLink} onChange={handleLinkField} placeholder='Big link here'></input>
       {displayTinyLink && <h2>Your link: <a href={tinyLink}>{tinyLink}</a></h2>}
       <br></br>
+      {!displayTinyLink && <br></br>}
       <button onClick={shrink}>Shrink</button>
+      <br></br>
       <br></br>
       <a href='https://github.com/spikest3r/URLShortener'>Source code</a>
       <p>Made by spikest3r</p>
