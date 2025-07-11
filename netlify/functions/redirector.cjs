@@ -1,3 +1,6 @@
+import { neon } from '@netlify/neon';
+const sql = neon();
+
 exports.handler = async (event) => {
     const path = event.path.replace("/.netlify/functions/redirector/", "")
     console.log(path)
