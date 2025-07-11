@@ -6,11 +6,12 @@ function App() {
   const [tinyLink, setTinyLink] = useState("");
 
   const shrink = async () => {
+    let link = ogLink
     if (!ogLink.startsWith('http://') && !ogLink.startsWith('https://')) {
-        setOgLink('https://' + ogLink);
+        link = 'https://' + ogLink;
     }
     console.log(ogLink);
-    fetch('/.netlify/functions/createTinyLink?link='+ogLink)
+    fetch('/.netlify/functions/createTinyLink?link='+link)
     .then(res => res.json())
     .then(data => setTinyLink("Your tiny link: " + data))
   };
