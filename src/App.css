@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+#ogLink {
+  width: 10em;
+  font-size: 2em;
+}
