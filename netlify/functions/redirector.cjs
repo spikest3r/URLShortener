@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     const query = await sql`SELECT original_url FROM urls WHERE short_url = ${path}`;
     const ogLink = query[0]?.original_url;
 
-    if(ogLink) {
+    if(ogLink && ogLink !== "@react-refresh") {
         return {
             statusCode: 302,
             headers: {
@@ -16,8 +16,10 @@ exports.handler = async (event) => {
         }
     } else {
         return {
-            statusCode: 404,
-            body: '<h1>=( Not found </h1>'
+            statusCode: 302,
+            headers: {
+                Location: "/"
+            }
         }
     }
 }
