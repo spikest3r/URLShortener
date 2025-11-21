@@ -15,7 +15,7 @@ function App() {
     fetch('/.netlify/functions/createTinyLink?link='+link)
     .then(res => res.json())
     .then(data => {
-      setTinyLink("https://tiny.nulldog.xyz/" + data);
+      setTinyLink("https://tiny.olehsheremeta.com/" + data);
       setDisplayTinyLink(true);
     })
   };
